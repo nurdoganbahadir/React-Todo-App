@@ -1,12 +1,18 @@
-import React from 'react'
-import Container from 'react-bootstrap/esm/Container'
+import React from "react";
+import { MdDelete } from "react-icons/md";
 
 const TodoList = () => {
   return (
-    <Container>
-        
-    </Container>
-  )
-}
+    <div className="container my-3">
+      <h2 className="text-center">My Todos</h2>
+      <table className="w-100 my-3">
+        <div className="p-3 bg-secondary text-light rounded-4 d-flex justify-content-between">
+          <tr>Todo buraya gelicek</tr>
+          <MdDelete size={25} type="button" className="text-warning" />
+        </div>
+      </table>
+    </div>
+  );
+};
 
-export default TodoList
+export default TodoList;

@@ -15,7 +15,7 @@ const Home = () => {
           <Col sm={12} lg={6} className="">
             <AddTodo />
           </Col>
-          <Col sm={12} md={6}>
+          <Col sm={12} lg={6}>
             <TodoList />
           </Col>
         </Row>
