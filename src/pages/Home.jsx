@@ -10,9 +10,9 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container className="p-5 my-5 bg-warning rounded-4">
         <Row className="my-5">
-          <Col sm={12} lg={6}>
+          <Col sm={12} lg={6} className="">
             <AddTodo />
           </Col>
           <Col sm={12} md={6}>
