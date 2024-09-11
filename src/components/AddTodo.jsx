@@ -2,9 +2,11 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const AddTodo = ({ setTodos }) => {
   const [todo, setTodo] = useState(localStorage.getItem("MyTodos"));
+  const [id, setId] = useState(uuidv4());
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("MyTodos")) || [];
@@ -14,11 +16,15 @@ const AddTodo = ({ setTodos }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (todo === "") {
+    if (todo.trim() === "") {
       alert("Lütfen boş bırakmayınız");
     } else {
       const storedTodos = JSON.parse(localStorage.getItem("MyTodos")) || [];
-      const updatedTodos = [...storedTodos, todo];
+      const newTodo = {
+        id: uuidv4(),
+        text: todo,
+      };
+      const updatedTodos = [...storedTodos, newTodo];
       localStorage.setItem("MyTodos", JSON.stringify(updatedTodos));
       setTodos(updatedTodos);
       setTodo("");

@@ -18,7 +18,7 @@ const Home = () => {
             <AddTodo setTodos={setTodos} />
           </Col>
           <Col sm={12} lg={6}>
-            <TodoList todos={todos} />
+            <TodoList todos={todos} setTodos={setTodos} />
           </Col>
         </Row>
       </Container>
