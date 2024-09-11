@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,8 +7,7 @@ import TodoList from "../components/TodoList";
 import Header from "../components/Header";
 
 const Home = () => {
-  const [todos, setTodos] = useState("");
-  const [id, setId] = useState(uuidv4());
+  const [todos, setTodos] = useState();
 
   return (
     <>
