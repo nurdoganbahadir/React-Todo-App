@@ -23,6 +23,7 @@ const AddTodo = ({ setTodos }) => {
       const newTodo = {
         id: uuidv4(),
         text: todo,
+        completed: false,
       };
       const updatedTodos = [...storedTodos, newTodo];
       localStorage.setItem("MyTodos", JSON.stringify(updatedTodos));

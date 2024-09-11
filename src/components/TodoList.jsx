@@ -2,10 +2,19 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 
 const TodoList = ({ todos = [], setTodos }) => {
+  const handleCompleted = (id) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+
+    localStorage.setItem("MyTodos", JSON.stringify(updatedTodos));
+    setTodos(updatedTodos);
+  };
+
   const handleDelete = (id) => {
-    const updateTodos = todos.filter((todo) => todo.id !== id);
-    localStorage.setItem("MyTodos", JSON.stringify(updateTodos));
-    setTodos(updateTodos);
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    localStorage.setItem("MyTodos", JSON.stringify(updatedTodos));
+    setTodos(updatedTodos);
   };
 
   return (
@@ -14,14 +23,21 @@ const TodoList = ({ todos = [], setTodos }) => {
       <table className="w-100 my-3">
         <tbody>
           {todos.map((item) => (
-            <tr key={item.id}>
+            <tr
+              key={item.id}
+              onClick={() => handleCompleted(item.id)}
+              className={item.completed ? "completed" : ""}
+            >
               <td className="p-3 m-1 bg-secondary text-light rounded-4 d-flex justify-content-between">
                 {item.text}
                 <MdDelete
                   size={25}
                   type="button"
                   className="text-warning"
-                  onClick={() => handleDelete(item.id)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Bu satır tıklamanın `tr`'ye yayılmasını engeller
+                    handleDelete(item.id);
+                  }}
                 />
               </td>
             </tr>

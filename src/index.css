@@ -1,1 +1,6 @@
-
+.completed {
+  text-decoration: line-through;
+}
+.completed td {
+  background-color: green !important;
+}
