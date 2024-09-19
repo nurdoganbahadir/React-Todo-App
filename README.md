@@ -15,7 +15,11 @@ This is a Todo App project. In this project the user can create a list of plans,
 
 # How to install
 
-In the project directory, you can run:
+In the project directory, open the terminal and run:
+
+### `npm install`
+
+This will install the necessary dependencies. After that, you can run:
 
 ### `npm start`
 
